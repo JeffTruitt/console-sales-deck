@@ -1,0 +1,375 @@
+/* Session bookends, why now, positioning, implementation,
+   launch plan and the FAQ sharp-edges slide. */
+
+.body.trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* Leaves room for the .closing-note line beneath the three cards. */
+.body.trio:has(+ .closing-note) { height: 780px; }
+
+/* ---------- Session goals bookends ---------- */
+
+.goal { position: relative; padding-top: 8px; }
+
+.goal .num {
+  margin-bottom: 14px;
+  color: var(--violet);
+  font-family: "Manrope", sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 1;
+}
+
+.goal h2 {
+  margin: 0 0 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  font-family: "Manrope", sans-serif;
+  font-size: 33px;
+  font-weight: 800;
+  letter-spacing: -.028em;
+  line-height: 1.12;
+}
+
+.goal p { margin: 0 0 18px; font-size: 22px; line-height: 1.42; }
+
+.goal .src {
+  margin-top: auto;
+  padding: 14px 17px;
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+  font-size: 16px;
+  line-height: 1.36;
+}
+
+.goal .src b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--violet);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+/* ---------- Why now ---------- */
+
+.why-list { margin: 8px 0 0; padding: 0; list-style: none; }
+
+.why-list li {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 40px;
+  font-size: 29px;
+  line-height: 1.4;
+}
+
+.why-list li::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 22px;
+  height: 3px;
+  background: var(--violet);
+}
+
+.why-list b { display: block; font-family: "Manrope", sans-serif; font-weight: 800; }
+
+.bridge {
+  margin-top: auto;
+  padding: 26px 32px;
+  border-left: 4px solid var(--magenta);
+  background: linear-gradient(100deg, #fdf2f7, rgba(253, 242, 247, .35));
+  font-family: "Manrope", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.22;
+}
+
+/* ---------- Positioning ---------- */
+
+.posbody {
+  display: flex;
+  height: 824px;
+  flex-direction: column;
+}
+
+.bigline {
+  max-width: 1620px;
+  margin: 10px 0 38px;
+  font-family: "Manrope", sans-serif;
+  font-size: 58px;
+  font-weight: 800;
+  letter-spacing: -.042em;
+  line-height: 1.1;
+}
+
+.bigline em { color: var(--violet); font-style: normal; }
+
+.benefits {
+  display: grid;
+  flex: 1;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.benefit {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 26px 28px;
+  border: 1px solid #e0e0e9;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 5px 18px rgba(25, 23, 55, .035);
+}
+
+.benefit h2 {
+  margin: 0 0 16px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+  font-family: "Manrope", sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -.028em;
+}
+
+.benefit .proof { margin: 0 0 18px; font-size: 21px; line-height: 1.4; }
+
+.benefit .answers {
+  margin-top: auto;
+  padding: 14px 16px;
+  border-left: 3px solid var(--good);
+  background: var(--good-soft);
+  font-size: 16px;
+  line-height: 1.34;
+}
+
+.benefit .answers b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--good);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.benefit .track {
+  margin-top: auto;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--magenta);
+  background: #fdf2f7;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.34;
+}
+
+.benefit .track + .answers { margin-top: 0; }
+
+.benefit .track b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--magenta);
+  font-size: 9px;
+  font-weight: 800;
+  font-style: normal;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.posstate {
+  margin-top: 26px;
+  padding: 22px 26px;
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+  font-size: 17.5px;
+  line-height: 1.4;
+}
+
+.posstate b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--violet);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+/* ---------- Implementation ---------- */
+
+.steps { margin: 0; padding: 0; counter-reset: step; list-style: none; }
+
+.steps li {
+  position: relative;
+  margin-bottom: 18px;
+  padding-left: 44px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 28px;
+  text-align: center;
+}
+
+.steps b {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.steps .when { color: var(--violet); font-weight: 700; }
+
+/* ---------- Launch plan & assets ---------- */
+
+.assets { margin: 0; padding: 0; list-style: none; }
+
+.assets li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 16.5px;
+}
+
+/* Rows are separated by rules, so the inherited .panel li marker is redundant
+   and its absolute position collides with the flex row's text. */
+.assets li::before { display: none; }
+
+.assets a { color: var(--violet); font-weight: 700; text-decoration: none; }
+.assets a:hover { text-decoration: underline; }
+
+.assets .aud {
+  flex: none;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.plan { margin: 0 0 18px; padding: 0; list-style: none; }
+
+.plan li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 26px;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.plan li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--violet);
+  border-radius: 50%;
+}
+
+.plan .date {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+
+/* ---------- Compact launch-limit answers on the objections slide ---------- */
+
+.obj.brief ul { margin: 0; padding: 0; list-style: none; }
+
+.obj.brief li {
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.36;
+}
+
+.obj.brief li:last-child { border-bottom: 0; }
+
+.obj.brief .more {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+  font-size: 13.5px;
+  line-height: 1.36;
+}
+
+.obj.brief .more a { color: var(--violet); font-weight: 700; }
+
+.obj.brief b { font-family: "Manrope", sans-serif; font-weight: 800; }
+
+.obj.brief .no { color: var(--warn); font-weight: 700; }
+.obj.brief .yes { color: var(--good); font-weight: 700; }
+.obj.brief .care { color: var(--violet); font-weight: 700; }
+
+/* ---------- Launch-limit cards ---------- */
+
+.edges {
+  display: grid;
+  height: 824px;
+  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.edge {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 18px 19px;
+  border: 1px solid #e0e0e9;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 5px 18px rgba(25, 23, 55, .035);
+}
+
+.edge h2 {
+  margin: 0 0 14px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--line);
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.018em;
+  line-height: 1.2;
+}
+
+.edge p { margin: 0; font-size: 16px; line-height: 1.4; }
+
+.edge .verdict {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.edge .no { background: var(--warn-soft); color: var(--warn); }
+.edge .yes { background: var(--good-soft); color: var(--good); }
+.edge .care { background: var(--violet-soft); color: var(--violet); }

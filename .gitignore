@@ -1,0 +1,10 @@
+﻿# Office source documents live in SharePoint, not here
+Marketing Materials/
+
+# OneDrive / Windows noise
+Thumbs.db
+desktop.ini
+~$*
+
+# Reference decks from other products, not part of this deck
+*.pptx

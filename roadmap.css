@@ -1,0 +1,257 @@
+/* Screenshot slides and the 2026 roadmap.
+   Base frame in styles.css; other slide components in slides.css. */
+
+/* ---------- Screenshot slides ---------- */
+
+.shot {
+  display: grid;
+  height: 824px;
+  gap: 30px;
+  grid-template-columns: 430px minmax(0, 1fr);
+  align-items: start;
+}
+
+.shot .caption .chip { margin-top: 10px; }
+.shot .caption p { margin: 0 0 18px; font-size: 19px; line-height: 1.45; }
+
+.shot .frame {
+  height: 824px;
+  padding: 14px;
+  border: 1px solid #e0e0e9;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 14px 40px rgba(25, 23, 55, .12);
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  object-fit: contain;
+  object-position: top center;
+}
+
+.switcher {
+  display: grid;
+  flex: 1;
+  place-items: center;
+  min-height: 0;
+  padding: 16px;
+  border: 1px solid #e6e6ee;
+  border-radius: 5px;
+  background: #f4f4f8;
+}
+
+.switcher img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 3px;
+  box-shadow: 0 10px 30px rgba(25, 23, 55, .16);
+}
+
+.caption-note { margin: 16px 0 0; font-size: 16px; line-height: 1.42; }
+
+/* ---------- Roadmap: guardrail, timeline, releases ---------- */
+
+.guard {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 10px;
+  padding: 9px 16px;
+  border-left: 3px solid var(--warn);
+  background: var(--warn-soft);
+  font-size: 13.5px;
+  line-height: 1.34;
+}
+
+.guard b {
+  flex: none;
+  color: var(--warn);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.timeline {
+  display: grid;
+  height: 62px;
+  margin-bottom: 8px;
+  gap: 28px;
+  grid-template-columns: 1.05fr .64fr 1.31fr;
+}
+
+.milestone {
+  position: relative;
+  padding-top: 13px;
+  border-top: 3px solid #d8d8e3;
+  text-align: center;
+}
+
+.milestone::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--violet);
+  border-radius: 50%;
+  background: var(--paper);
+  transform: translateX(-50%);
+}
+
+.date { font-family: "Manrope", sans-serif; font-size: 17px; font-weight: 800; }
+
+.status {
+  margin-top: 2px;
+  color: var(--magenta);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.releases {
+  display: grid;
+  height: 724px;
+  gap: 28px;
+  grid-template-columns: 1.05fr .64fr 1.31fr;
+}
+
+.release { display: flex; min-width: 0; flex-direction: column; }
+
+.release-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  margin-bottom: 9px;
+  border-bottom: 1px solid #8d8d9f;
+}
+
+.version { font-family: "Manrope", sans-serif; font-size: 12px; font-weight: 800; }
+
+.theme {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Roadmap cards ---------- */
+
+.cards { display: grid; min-height: 0; gap: 10px; }
+
+.august .cards,
+.december .cards {
+  flex: 1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+}
+
+.august .cards { grid-template-rows: 1fr 1fr auto; }
+.october .cards { grid-template-rows: minmax(270px, auto); align-content: start; }
+
+.card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 15px 17px 13px;
+  border: 1px solid #e0e0e9;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .88);
+  box-shadow: 0 5px 18px rgba(25, 23, 55, .035);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 0;
+  width: 4px;
+  height: 25px;
+  background: var(--violet);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -.018em;
+  line-height: 1.18;
+}
+
+.statement {
+  display: grid;
+  margin-bottom: 6px;
+  gap: 5px;
+  grid-template-columns: 58px 1fr;
+  font-size: 11.5px;
+  line-height: 1.32;
+}
+
+.statement.goal { padding-top: 6px; border-top: 1px dashed #e2e2ec; }
+
+.label {
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.impact { color: #34334b; font-weight: 600; }
+.goal .label { color: var(--violet); }
+.goal-text { color: #45445c; font-style: italic; }
+
+.pages {
+  display: grid;
+  margin: 1px 0 7px;
+  padding: 7px 9px;
+  gap: 2px;
+  border-left: 2px solid #d9d5fb;
+  background: var(--violet-soft);
+  font-size: 10px;
+  line-height: 1.26;
+}
+
+.pages b { font-family: "Manrope", sans-serif; font-weight: 800; }
+
+.card .chip {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 5px 9px;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+
+.october .card {
+  justify-content: flex-start;
+  padding: 24px 23px 20px;
+  background: linear-gradient(145deg, #fff 48%, #f4f2ff);
+}
+
+.october .card h2 { font-size: 20px; }
+.october .statement { grid-template-columns: 1fr; font-size: 13px; }
+
+.card.wide { grid-column: 1 / -1; }
+
+.card.wide .lines {
+  display: grid;
+  margin-bottom: 10px;
+  gap: 0 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.card.wide .statement {
+  margin-bottom: 0;
+  padding-top: 9px;
+  gap: 3px;
+  grid-template-columns: 1fr;
+  border-top: 1px solid #ececf3;
+}

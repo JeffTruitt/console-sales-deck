@@ -1,0 +1,376 @@
+/* Personas, market & buyer, pricing, competitive and objection components.
+   Base frame in styles.css; screenshots and roadmap in roadmap.css. */
+
+/* ---------- Takeaways slide footer line ---------- */
+
+.closing-note {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* ---------- Personas ---------- */
+
+/* Element selector is required: `.panel ul` in styles.css zeroes padding and
+   outranks a bare class. */
+ul.personas {
+  display: grid;
+  margin: 4px 0 0;
+  padding: 26px 34px;
+  gap: 16px 26px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+  counter-reset: persona;
+  list-style: none;
+}
+
+.personas li {
+  margin: 0;
+  padding-left: 30px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.personas li::before {
+  counter-increment: persona;
+  content: counter(persona);
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* ---------- Market & buyer ---------- */
+
+.stat {
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--magenta);
+  background: #fdf2f7;
+}
+
+.stat b {
+  display: block;
+  font-family: "Manrope", sans-serif;
+  font-size: 46px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
+
+.stat span { display: block; margin-top: 7px; font-size: 16px; line-height: 1.35; }
+
+.kv { margin-bottom: 16px; font-size: 17px; line-height: 1.4; }
+
+.kv dt {
+  color: var(--violet);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.kv dd { margin: 3px 0 0; }
+
+.fit {
+  display: grid;
+  margin-top: 4px;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.fit section { padding: 14px 16px; border-radius: 4px; }
+.fit .yes { border-left: 3px solid var(--good); background: var(--good-soft); }
+.fit .no { border-left: 3px solid var(--warn); background: var(--warn-soft); }
+
+.fit h3 {
+  margin: 0 0 9px;
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.fit .yes h3 { color: var(--good); }
+.fit .no h3 { color: var(--warn); }
+
+.fit ul { margin: 0; padding: 0; list-style: none; }
+.fit li { margin-bottom: 7px; padding-left: 15px; font-size: 14px; line-height: 1.32; }
+.fit li::before { top: 7px; width: 5px; height: 5px; border-radius: 50%; }
+.fit .yes li::before { background: var(--good); }
+.fit .no li::before { background: var(--warn); }
+
+/* ---------- Packaging & pricing ---------- */
+
+.sku {
+  margin-bottom: 14px;
+  padding: 20px 22px;
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+}
+
+.sku.plus { border-left-color: var(--magenta); background: #fdf2f7; }
+
+.sku h3 {
+  margin: 0 0 4px;
+  font-family: "Manrope", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.sku .rank {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.sku p { margin: 0; font-size: 16px; line-height: 1.4; }
+
+.price {
+  width: 100%;
+  margin-top: 4px;
+  border-collapse: collapse;
+  font-size: 17px;
+}
+
+.price caption {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.price th, .price td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+
+.price th:first-child, .price td:first-child { text-align: left; }
+
+.price thead th {
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.price tbody td { font-variant-numeric: tabular-nums; }
+.price tbody tr:nth-child(odd) { background: rgba(84, 71, 232, .035); }
+.price .plus-col { color: var(--ink); font-weight: 700; }
+
+/* ---------- Competitive landscape ---------- */
+
+.banner {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 15px 20px;
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.banner b {
+  flex: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.comp-grid {
+  display: grid;
+  height: 588px;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.comp {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 20px 22px;
+  border: 1px solid #e0e0e9;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 5px 18px rgba(25, 23, 55, .035);
+}
+
+.comp h2 {
+  margin: 0 0 3px;
+  font-family: "Manrope", sans-serif;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.comp .rank {
+  color: var(--magenta);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.comp .who {
+  margin: 9px 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.38;
+}
+
+.comp .who em { color: var(--ink); font-style: normal; font-weight: 700; }
+
+.comp dl { margin: 0; }
+
+.comp dt {
+  margin-bottom: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.comp dd { margin: 0 0 14px; font-size: 15px; line-height: 1.38; }
+
+.comp .s dt { color: var(--muted); }
+.comp .w dt { color: var(--warn); }
+
+.comp .a {
+  margin-top: auto;
+  padding: 12px 14px;
+  border-left: 3px solid var(--violet);
+  background: var(--violet-soft);
+}
+
+.comp .a dt { color: var(--violet); }
+.comp .a dd { margin: 0; font-weight: 600; }
+
+.comp-also {
+  display: grid;
+  margin-top: 18px;
+  gap: 16px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.comp-also div {
+  padding: 12px 14px;
+  border: 1px solid #e6e6ee;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .7);
+  font-size: 13.5px;
+  line-height: 1.34;
+}
+
+.comp-also b {
+  display: block;
+  margin-bottom: 3px;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.comp-also span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
+
+/* ---------- Objection handling ---------- */
+
+.obj-grid {
+  display: grid;
+  height: 824px;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.obj {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 20px 22px;
+  border: 1px solid #e0e0e9;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 5px 18px rgba(25, 23, 55, .035);
+}
+
+.obj h2 {
+  margin: 0 0 15px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid var(--line);
+  font-family: "Manrope", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -.015em;
+  line-height: 1.24;
+}
+
+.obj dl { display: grid; margin: 0 0 13px; gap: 9px; grid-template-columns: 78px 1fr; }
+
+.obj dt {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.obj dd { margin: 0; font-size: 15.5px; line-height: 1.4; }
+
+.obj .a-row dt { color: var(--muted); }
+.obj .c-row dt { color: var(--violet); }
+.obj .e-row dt { color: var(--magenta); }
+.obj .c-row dd { font-weight: 600; }
+.obj .e-row dd { font-style: italic; }
+
+.ace {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px 28px;
+  border-radius: 5px;
+  background: linear-gradient(150deg, #2a2748, #46399f);
+  color: #f4f3ff;
+}
+
+.ace h2 {
+  margin: 0 0 16px;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.ace p { margin: 0 0 14px; font-size: 15px; line-height: 1.45; }
+
+.ace dl { margin: 0; }
+
+.ace dt {
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.ace dd { margin: 2px 0 12px; color: #cfccf5; font-size: 14px; line-height: 1.4; }
