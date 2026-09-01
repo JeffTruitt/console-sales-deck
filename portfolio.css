@@ -1,0 +1,211 @@
+/* Portfolio placement: the data-layer contrast on Built on Dataverse and the
+   Reporting-tile diagram on Where Console Lives. Tokens in styles.css. */
+
+/* ---------- With / without a native data layer ---------- */
+
+.contrast { display: flex; flex: 1; flex-direction: column; gap: 20px; }
+
+.cx {
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--warn);
+  border-radius: 4px;
+  background: var(--warn-soft);
+}
+
+.cx.yes { border-left-color: var(--good); background: var(--good-soft); }
+
+.cx h3 {
+  margin: 0 0 12px;
+  color: var(--warn);
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.cx.yes h3 { color: var(--good); }
+
+.chain { margin: 0; padding: 0; list-style: none; counter-reset: link; }
+
+.chain li {
+  position: relative;
+  margin-bottom: 9px;
+  padding-left: 26px;
+  font-size: 16.5px;
+  line-height: 1.34;
+}
+
+.chain li:last-child { margin-bottom: 0; }
+
+.chain li::before {
+  counter-increment: link;
+  content: counter(link);
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--warn);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 18px;
+  text-align: center;
+}
+
+.cx.yes .chain li::before { background: var(--good); }
+
+.cx .foot {
+  margin-top: 14px;
+  padding-top: 11px;
+  border-top: 1px solid rgba(23, 22, 47, .12);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ---------- Reporting tile diagram ---------- */
+
+.stack { display: flex; flex: 1; flex-direction: column; }
+
+.tiles { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.tile {
+  padding: 14px 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #f2f2f6;
+  color: var(--muted);
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.tile.on {
+  border-color: var(--violet);
+  background: var(--violet-soft);
+  color: var(--violet);
+  font-weight: 800;
+}
+
+/* Connector: vertical line with an arrowhead at the far end. */
+.flow { position: relative; height: 34px; }
+
+.flow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 7px;
+  left: 87.5%;
+  width: 2px;
+  background: #c4c4d2;
+}
+
+.flow::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 87.5%;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #c4c4d2;
+  border-left: 6px solid transparent;
+  transform: translateX(-50%);
+}
+
+/* Dataverse feeds every product, so its connector drops from the center. */
+.flow.wide::before,
+.flow.wide::after { left: 50%; }
+
+.tilebox {
+  padding: 18px 20px 20px;
+  border: 1px solid var(--violet);
+  border-radius: 6px;
+  background: rgba(238, 236, 255, .5);
+}
+
+.tilebox-label {
+  margin-bottom: 14px;
+  color: var(--violet);
+  font-family: "Manrope", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.inside { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.inbox {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #f2f2f6;
+  text-align: center;
+}
+
+.inbox.console { border-color: var(--good); background: var(--community); }
+
+.inbox b {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.inbox.console b { color: var(--community-ink); }
+
+.inbox span {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.38;
+}
+
+.inbox.console span { color: var(--community-ink); }
+
+.foundation {
+  padding: 14px 18px;
+  border: 1px solid var(--violet);
+  border-radius: 5px;
+  background: #fff;
+  text-align: center;
+}
+
+.foundation b {
+  display: block;
+  color: var(--violet);
+  font-family: "Manrope", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.foundation span { font-size: 15px; }
+
+/* ---------- Rep guidance ---------- */
+
+.guide {
+  margin-top: 16px;
+  padding: 15px 19px;
+  border-left: 3px solid var(--good);
+  background: var(--good-soft);
+  font-size: 16.5px;
+  line-height: 1.4;
+}
+
+.guide.dont { border-left-color: var(--warn); background: var(--warn-soft); }
+
+.guide b {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--good);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.guide.dont b { color: var(--warn); }
